@@ -1,6 +1,9 @@
+from contextlib import nullcontext
+
 from src.models import Apartment
 from src.manager import Manager
 from src.models import Parameters
+import pytest
 
 
 def test_load_data():
@@ -30,3 +33,10 @@ def test_if_tenants_have_valid_apartment_keys():
 
     manager.tenants['tenant-1'].apartment = 'invalid-key'
     assert manager.check_tenants_apartment_keys() == False
+
+def test_if_apartment_cost_sum_properly():
+    parameters = Parameters()
+    manager = Manager(parameters)
+    assert manager.get_apartment_costs("apart", 2025, 1) == "Mieszkanie nie istnieje"
+    assert manager.get_apartment_costs("apart-polanka", 2025, 3) == "Brak rachunku dla tego mieszkania w podanym miesiacu"
+    assert manager.get_apartment_costs("apart-polanka", 2025, 1) == 910

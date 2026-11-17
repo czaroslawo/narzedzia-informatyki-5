@@ -23,3 +23,31 @@ class Manager:
             if tenant.apartment not in self.apartments:
                 return False
         return True
+
+    def get_apartment_costs(
+            self,
+            apartment_key: str,
+            year: int | None = None,
+            month: int | None = None,
+    ) -> float | str:
+        sum = 0.0
+        if apartment_key not in self.apartments:
+            return "Mieszkanie nie istnieje"
+        if month is not None:
+            if month > 12 or month < 1:
+                return "Miesiac jest niepoprawny"
+            if not any(
+                    bill.apartment == apartment_key
+                    and bill.settlement_month == month
+                    and (year is None or bill.settlement_year == year)
+                    for bill in self.bills
+            ):
+                return "Brak rachunku dla tego mieszkania w podanym miesiacu"
+        for bill in self.bills:
+            if (
+                    bill.apartment == apartment_key
+                    and (year is None or bill.settlement_year == year)
+                    and (month is None or bill.settlement_month == month)
+            ):
+                sum += bill.amount_pln
+        return sum

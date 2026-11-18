@@ -2,16 +2,18 @@
 platform darwin -- Python 3.13.7, pytest-9.2.0, pluggy-1.7.0 -- /Users/czaro/PycharmProjects/narzedzia-informatyki-5/venv/bin/python3.13
 cachedir: .pytest_cache
 rootdir: /Users/czaro/PycharmProjects/narzedzia-informatyki-5
-collecting ... collected 9 items
+collecting ... collected 11 items
 
-tests/test_complex_integration.py::test_apartment_costs_with_optional_parameters PASSED [ 11%]
-tests/test_integration.py::test_load_data PASSED                         [ 22%]
-tests/test_integration.py::test_tenants_in_manager PASSED                [ 33%]
-tests/test_integration.py::test_if_tenants_have_valid_apartment_keys PASSED [ 44%]
-tests/test_integration.py::test_if_apartment_cost_sum_properly PASSED    [ 55%]
-tests/test_unit.py::test_apartment_fields PASSED                         [ 66%]
-tests/test_unit.py::test_apartment_from_dict PASSED                      [ 77%]
-tests/test_unit.py::test_tenant_fields PASSED                            [ 88%]
+tests/test_complex_integration.py::test_apartment_costs_with_optional_parameters PASSED [  9%]
+tests/test_complex_integration.py::test_create_apartment_settlement PASSED [ 18%]
+tests/test_complex_integration.py::test_create_tenant_settlements PASSED [ 27%]
+tests/test_integration.py::test_load_data PASSED                         [ 36%]
+tests/test_integration.py::test_tenants_in_manager PASSED                [ 45%]
+tests/test_integration.py::test_if_tenants_have_valid_apartment_keys PASSED [ 54%]
+tests/test_integration.py::test_if_apartment_cost_sum_properly PASSED    [ 63%]
+tests/test_unit.py::test_apartment_fields PASSED                         [ 72%]
+tests/test_unit.py::test_apartment_from_dict PASSED                      [ 81%]
+tests/test_unit.py::test_tenant_fields PASSED                            [ 90%]
 tests/test_unit.py::test_tenant_from_dict PASSED                         [100%]
 
-============================== 9 passed in 0.07s ===============================
+============================== 11 passed in 0.07s ==============================
